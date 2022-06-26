@@ -42,13 +42,13 @@
                                         class="d-block ui-w-40 rounded-circle" alt="">
                                        </div>
                                        <div>
-                                           <button class="btn btn-warning btn-sm m-2" @click="edit(post)" v-if="post.user.id== currentUserId || currentUserRole==1"><i class="fa fa-pen-to-square"> </i></button>
-                                           <button class="btn btn-danger btn-sm " @click="deletePost(post.id)" v-if="post.user.id== currentUserId || currentUserRole==1"><i class="fa fa-trash"> </i></button>
+                                           <button class="btn btn-sm m-2" @click="edit(post)" v-if="post.user.id== currentUserId || currentUserRole==1"><i class="fa fa-pen-to-square"> </i></button>
+                                           <button class="btn btn-sm " @click="deletePost(post.id)" v-if="post.user.id== currentUserId || currentUserRole==1"><i class="fa fa-trash"> </i></button>
                                        </div>
                                    </div>
                                     <div class="media-body ml-3">
                                         {{post.user.username}}
-                                        <div class="text-muted small">{{timer(post.createdAt)}}</div>
+                                        <div class="small">{{timer(post.createdAt)}}</div>
                                     </div>
                                 </div>
 
@@ -283,14 +283,28 @@
         }
     }
 </script>
+
 <style scoped>
+    input{
+        font-weight: bolder;
+    }
+    textarea{
+        font-weight: bolder;
+    }
+    button{
+        font-weight: bolder;
+    }
+    .btn-sm:hover{
+        transform: scale(1.05);
+        transition: 0.2s;
+    }
     .updatebtn{
         display: flex;
         align-items: flex-end;
     }
     h1 {
         font-weight: bold;
-        color: #333;
+        color: #4E5166;
         margin-block: 0.5em;
     }
 
@@ -375,7 +389,39 @@
 #file-input-update {
   display: none;
 }
+.btn-primary{
+    background-color: #4E5166;
+    border: none;
+    opacity: 0.8;
+}
+.btn-primary:hover{
+    color: white;
+    background-color: #4E5166;
+    opacity: 1;
+}
 .btn-secondary{
     margin-right: 1rem;
+}
+.btn-secondary:hover{
+    color: #FD2D01;
+    opacity: 0.8;
+}
+.fa-pen-to-square{
+    color: #4E5166;
+}
+.fa-trash{
+    color: #4E5166;
+}
+.btn-sm:hover{
+    background-color: #FFD7D7;
+}
+.text-muted{
+    border: none;
+    border-radius: 3px;
+    background-color: #FFD7D7 ;
+}
+.text-muted:hover{
+    transform: scale(1.05);
+    transition: 0.2s;
 }
 </style>

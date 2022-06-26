@@ -1,27 +1,27 @@
 <script>
-import Logo from "../ui/svg/Logo.vue"
+import Logo from "../ui/svg/Logo.vue";
 
 export default {
   name: "AppNavbar",
   components: { Logo },
   data() {
     return {
-      isLoggedIn: false
-    }
+      isLoggedIn: false,
+    };
   },
   created() {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem("token");
     if (token != null) {
-      this.isLoggedIn = true
+      this.isLoggedIn = true;
     }
   },
   methods: {
     logout() {
-      localStorage.removeItem("token")
-      this.$router.go()
-    }
-  }
-}
+      localStorage.removeItem("token");
+      this.$router.go();
+    },
+  },
+};
 </script>
 <template>
   <header class="p-3 bg-tertiaire text-white">
@@ -33,12 +33,22 @@ export default {
           to="/"
           class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
         >
-          <Logo class="bi" width="40" height="32" role="img" aria-label="Bootstrap" />
+          <Logo
+            class="bi"
+            width="40"
+            height="32"
+            role="img"
+            aria-label="Bootstrap"
+          />
         </router-link>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <ul
+          class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+        >
           <li>
-            <router-link to="/home" class="nav-link px-2 text-secondary">Groupomania</router-link>
+            <router-link to="/home" class="nav-link px-2 text-nav"
+              >Groupomania</router-link
+            >
           </li>
         </ul>
 
@@ -47,7 +57,7 @@ export default {
             @click="this.logout"
             v-if="this.isLoggedIn"
             type="button"
-            class="btn btn-outline-light me-2"
+            class="btn-deco"
           >
             déconnexion
           </button>
@@ -56,54 +66,74 @@ export default {
     </div>
   </header>
 </template>
+
 <style>
-
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
+  .btn-deco{
+    color: white;
+    font-weight: bolder;
+    background-color: transparent;
+    border: 1.5px solid white;
+    border-radius: 4px;
   }
+.btn-deco:hover{
+ color: #FD2D01;
+ background-color: white;
+ transform: scale(1.1);
+  transition: 0.2s;
 }
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
 
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  
+  .text-nav{
+    color: white !important;
+  }
 
-.b-example-divider {
-  height: 3rem;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: solid rgba(0, 0, 0, 0.15);
-  border-width: 1px 0;
-  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1), inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
-}
+  .text-nav:hover{
+    scale: 50%;
+  }
 
-.form-control-dark {
-  color: #fff;
-  background-color: var(--bs-dark);
-  border-color: var(--bs-gray);
-}
-.form-control-dark:focus {
-  color: #fff;
-  background-color: var(--bs-dark);
-  border-color: #fff;
-  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
-}
+  .b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid rgba(0, 0, 0, 0.15);
+    border-width: 1px 0;
+    box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+      inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+  }
 
-.bi {
-  vertical-align: -0.125em;
-  fill: currentColor;
-}
+  .form-control-dark {
+    color: #fff;
+    background-color: var(--bs-dark);
+    border-color: var(--bs-gray);
+  }
+  .form-control-dark:focus {
+    color: #fff;
+    background-color: var(--bs-dark);
+    border-color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+  }
 
-.text-small {
-  font-size: 85%;
-}
+  .bi {
+    vertical-align: -0.125em;
+    fill: currentColor;
+  }
 
+  .text-small {
+    font-size: 85%;
+  }
 
-.dropdown-toggle {
-  outline: 0;
-}
+  .dropdown-toggle {
+    outline: 0;
+  }
 </style>

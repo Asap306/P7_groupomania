@@ -188,6 +188,9 @@ export default {
 
 <style scoped>
 
+input{
+  font-weight: bolder;
+}
 .btn-primary {
   color: black;
   background-color: #FFD7D7;
@@ -206,6 +209,10 @@ html,
 body {
   align-items: center;
   padding-bottom: 40px;
+}
+
+.form-control{
+  border-radius: 0;
 }
 
 .form-signin {
@@ -236,6 +243,7 @@ body {
 
 button[type="submit"] {
   margin-block: 1rem;
+  font-weight: bolder;
 }
 
 .bd-placeholder-img {

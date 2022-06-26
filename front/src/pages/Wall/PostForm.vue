@@ -1,6 +1,6 @@
 <script>
 import { getUrlAndHeaders, getUserInfos } from "./../../services/fetchOptions";
-import axios from "axios"
+import axios from "axios";
 export default {
   name: "PostForm",
   data() {
@@ -15,26 +15,26 @@ export default {
     },
     handleClick() {
       const { url, headers } = getUrlAndHeaders();
-      
+
       const user = getUserInfos();
       const formData = new FormData();
 
       formData.append("content", this.content);
       formData.append("userId", user.id);
       formData.append("image", this.selectedImage);
-       
+
       const options = {
         Authorization: headers.Authorization,
         "Content-Type": "multipart/form-data",
       };
       console.log("options:", options);
-      axios.post(url+ "posts",formData,options)
+      axios
+        .post(url + "posts", formData, options)
         .then((res) => {
           this.$router.go();
           alert(res.data.message);
         })
         .catch((error) => (this.msgError = error));
-
 
       /*fetch(url + "posts", options)
         .then((res) => {
@@ -77,6 +77,15 @@ export default {
 </template>
 
 <style scoped>
+label{
+  font-weight: bolder;
+}
+button {
+  font-weight: bolder;
+}
+input{
+  font-weight: bolder;
+}
 #file-input {
   display: none;
 }
@@ -105,24 +114,27 @@ body {
   transform: translateY(-50%);
 }
 
-.btn-primary{
+.btn-primary {
   color: black;
-  background-color: #FFD7D7;
-  border-color: #FD2D01;
+  background-color: #ffd7d7;
+  border: none;
+}
+.btn-primary:hover {
+  background-color: #fd2d01;
+  opacity: 0.8;
 }
 
-.btn-secondary{
+.btn-secondary {
   color: black;
-  background-color: #FFD7D7;
-  border-color: #FD2D01;
+  background-color: #ffd7d7;
+  border: none;
 }
-.btn-secondary:hover{
-   background-color: #FD2D01;
-
-}
-
-button:hover{
-  background-color: #FD2D01;
+.btn-secondary:hover {
+  background-color: #fd2d01;
+  opacity: 0.8;
 }
 
+button:hover {
+  background-color: #fd2d01;
+}
 </style>
